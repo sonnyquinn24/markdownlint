@@ -149,6 +149,7 @@ playground for learning and exploring.
 - **[MD056](doc/md056.md)** *table-column-count* - Table column count
 - **[MD058](doc/md058.md)** *blanks-around-tables* - Tables should be surrounded by blank lines
 - **[MD059](doc/md059.md)** *descriptive-link-text* - Link text should be descriptive
+- **[MD060](doc/md060.md)** *table-column-style* - Table column style
 
 <!-- markdownlint-restore -->
 
@@ -190,7 +191,7 @@ rules at once.
 - **`ol`** - `MD029`, `MD030`, `MD032`
 - **`spaces`** - `MD018`, `MD019`, `MD020`, `MD021`, `MD023`
 - **`spelling`** - `MD044`
-- **`table`** - `MD055`, `MD056`, `MD058`
+- **`table`** - `MD055`, `MD056`, `MD058`, `MD060`
 - **`ul`** - `MD004`, `MD005`, `MD007`, `MD030`, `MD032`
 - **`url`** - `MD034`
 - **`whitespace`** - `MD009`, `MD010`, `MD012`, `MD027`, `MD028`, `MD030`,
@@ -619,28 +620,15 @@ By default, properly-formatted inline comments can be used to create exceptions
 for parts of a document. Setting `noInlineConfig` to `true` ignores all such
 comments.
 
-##### options.resultVersion
+##### ~~options.resultVersion~~
 
-Type: `Number`
+This property is *deprecated* and should be removed. The default format of the
+`result` object remains the same as setting `resultVersion` to `3`. For
+continued access to other (previously *deprecated*) formats:
 
-Specifies which version of the `result` object to return (see the "Usage"
-section below for examples).
-
-Passing a `resultVersion` of `0` corresponds to the original, simple format
-where each error is identified by rule name and line number. *Deprecated*
-
-Passing a `resultVersion` of `1` corresponds to a detailed format where each
-error includes information about the line number, rule name, alias, description,
-as well as any additional detail or context that is available. *Deprecated*
-
-Passing a `resultVersion` of `2` corresponds to a detailed format where each
-error includes information about the line number, rule names, description, as
-well as any additional detail or context that is available. *Deprecated*
-
-Passing a `resultVersion` of `3` corresponds to the detailed version `2` format
-with additional information about how to fix automatically-fixable errors. In
-this mode, all errors that occur on each line are reported (other versions
-report only the first error for each rule). This is the default behavior.
+```javascript
+import { convertToResultVersion0, convertToResultVersion1, convertToResultVersion2 } from "markdownlint/helpers";
+```
 
 ##### options.strings
 

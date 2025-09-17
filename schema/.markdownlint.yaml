@@ -7,7 +7,9 @@ default: true
 extends: null
 
 # MD001/heading-increment : Heading levels should only increment by one level at a time : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md001.md
-MD001: true
+MD001:
+  # RegExp for matching title in front matter
+  front_matter_title: "^\\s*title\\s*[:=]"
 
 # MD003/heading-style : Heading style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md003.md
 MD003:
@@ -154,6 +156,8 @@ MD032: true
 MD033:
   # Allowed elements
   allowed_elements: []
+  # Allowed elements in tables
+  table_allowed_elements: []
 
 # MD034/no-bare-urls : Bare URL used : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md034.md
 MD034: true
@@ -293,3 +297,8 @@ MD059:
     - "here"
     - "link"
     - "more"
+
+# MD060/table-column-style : Table column style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md060.md
+MD060:
+  # Table column style
+  style: "any"

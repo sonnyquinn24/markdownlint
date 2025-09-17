@@ -21,11 +21,25 @@ export interface ConfigurationStrict {
   /**
    * MD001/heading-increment : Heading levels should only increment by one level at a time : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md001.md
    */
-  MD001?: boolean;
+  MD001?:
+    | boolean
+    | {
+        /**
+         * RegExp for matching title in front matter
+         */
+        front_matter_title?: string;
+      };
   /**
    * MD001/heading-increment : Heading levels should only increment by one level at a time : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md001.md
    */
-  "heading-increment"?: boolean;
+  "heading-increment"?:
+    | boolean
+    | {
+        /**
+         * RegExp for matching title in front matter
+         */
+        front_matter_title?: string;
+      };
   /**
    * MD003/heading-style : Heading style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md003.md
    */
@@ -605,6 +619,10 @@ export interface ConfigurationStrict {
          * Allowed elements
          */
         allowed_elements?: string[];
+        /**
+         * Allowed elements in tables
+         */
+        table_allowed_elements?: string[];
       };
   /**
    * MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md033.md
@@ -616,6 +634,10 @@ export interface ConfigurationStrict {
          * Allowed elements
          */
         allowed_elements?: string[];
+        /**
+         * Allowed elements in tables
+         */
+        table_allowed_elements?: string[];
       };
   /**
    * MD034/no-bare-urls : Bare URL used : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md034.md
@@ -1165,6 +1187,28 @@ export interface ConfigurationStrict {
         prohibited_texts?: string[];
       };
   /**
+   * MD060/table-column-style : Table column style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md060.md
+   */
+  MD060?:
+    | boolean
+    | {
+        /**
+         * Table column style
+         */
+        style?: "any" | "aligned" | "compact" | "tight";
+      };
+  /**
+   * MD060/table-column-style : Table column style : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md060.md
+   */
+  "table-column-style"?:
+    | boolean
+    | {
+        /**
+         * Table column style
+         */
+        style?: "any" | "aligned" | "compact" | "tight";
+      };
+  /**
    * headings : MD001, MD003, MD018, MD019, MD020, MD021, MD022, MD023, MD024, MD025, MD026, MD036, MD041, MD043
    */
   headings?: boolean;
@@ -1257,7 +1301,7 @@ export interface ConfigurationStrict {
    */
   images?: boolean;
   /**
-   * table : MD055, MD056, MD058
+   * table : MD055, MD056, MD058, MD060
    */
   table?: boolean;
 }
